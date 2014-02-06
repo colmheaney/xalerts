@@ -1,0 +1,21 @@
+<section id="add">
+	<form action="/" method="post" id="check_rate">
+
+	    <select name="currency_from" id="currency_form" form="check_rate" class="currency-dropdown first">
+	    <% @currencies.each do |c| %>
+	    	 <option value=<%= c.symbol %>><%= c.symbol %></option>
+	    <% end %>
+	    </select>
+
+	    <span>&raquo;</span>
+
+	    <select name="currency_to" id="currency_to" form="check_rate" class="currency-dropdown">
+	    <% @currencies.each do |c| %>
+	    	 <option value=<%= c.symbol %>><%= c.symbol %></option>
+	    <% end %>
+	    </select>
+
+	<input type="submit" form="check_rate" value="Go" id="submit">
+	</form>
+</section>
+

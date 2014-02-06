@@ -1,0 +1,45 @@
+<section id="add">
+	<form action="/alert" method="post" id="alert">
+
+		<% @conversion.each do |c| %>
+			<table>
+			<tr>
+				<td width="33%"><label>Lower Rate</label></td>
+				<td width="33%"><label>Current Rate</label></td>
+				<td width="33%"><label>Upper Rate</label></td>
+			</tr>
+			<tr>
+				<td>
+					<input label="Lower Rate" type="number" name="lower_rate" 
+				id="lower_rate" min="0" max=<%= c.rate %> step="0.0001" value=<%= c.rate %> form="alert">
+				</td>
+				<td><span id="current_rate"><%= c.rate %></span></td>
+				<td>
+					<input label="Upper Rate" type="number" name="upper_rate" 
+				id="upper_rate" min=<%= c.rate %> step="0.0001" value=<%= c.rate %> form="alert">
+				</td>
+			</tr>
+			</table>
+
+			<input type="hidden" name="current_rate" value=<%= c.rate %> form="alert"></input>
+			<input type="hidden" name="symbol" value=<%= c.symbol %> form="alert"></input>
+
+		<% end %>
+
+		<p id="instructions">Enter your email address and we'll send you an email as soon as the rate goes above or below the rate you set.</p>
+
+		<input type="email" name="email" id="email" form="alert" placeholder="Email address" required/>
+		<input type="submit" form="alert" value="Set Alert" id="set-alert"/>
+
+
+	</form>
+  <script type="text/javascript">
+  $('#alert').validate({
+    errorPlacement: function(error, element) {
+        error.insertAfter( element );
+    }
+  });
+
+  </script> 
+	
+</section>
