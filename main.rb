@@ -3,6 +3,9 @@ require 'json'
 require 'sinatra'
 require 'data_mapper'
 require 'dm-migrations'
+require 'sinatra/flash'
+
+enable :sessions
 
 configure :development do
   DataMapper::Logger.new($stdout, :debug)

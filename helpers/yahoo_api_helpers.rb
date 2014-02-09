@@ -8,11 +8,15 @@ module Sinatra
   module ResponseWithRedirect
 
     def get_response_with_redirect(*symbols)
-      uri = generate_uri(symbols)
-      r = Net::HTTP.get_response(uri)
-      if r.code == "301"
-        r = Net::HTTP.get_response(URI.parse(r.header['location']))
-        handle_response(r)
+      begin
+        uri = generate_uri(symbols)
+        r = Net::HTTP.get_response(uri)
+        if r.code == "301"
+          r = Net::HTTP.get_response(URI.parse(r.header['location']))
+          handle_response(r)
+        end
+      rescue Exception => e
+        return false
       end
     end
 

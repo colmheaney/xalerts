@@ -30,11 +30,11 @@ module Sinatra
 		end
 
 		def send_mail(alert, conversion)
-			body = "#{alert.upper_rate}\n#{conversion.rate}\n#{alert.lower_rate}"
+			body = "You requested an alert when the #{conversion.symbol} changed.\nThe rate is currently #{conversion.rate}\nTo set an new alert visit http://xalerts.colmheaney.com"
 			Pony.mail({
 				:from => 'root@pc.home',
 				:to => alert.email,
-				:subject =>'DO-NOT-REPLY: Currency Alert Service',
+				:subject =>'DO-NOT-REPLY: xAlert Service',
 				:body => body,
 				:via => :sendmail
 			})		

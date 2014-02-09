@@ -10,13 +10,13 @@
 			</tr>
 			<tr>
 				<td>
-					<input label="Lower Rate" type="number" name="lower_rate" 
-				id="lower_rate" min="0" max=<%= c.rate %> step="0.0001" value=<%= c.rate %> form="alert">
+					<input label="Lower Rate" name="lower_rate" 
+				id="lower_rate" class="spinner" min="0" max=<%= c.rate %> step="0.0001" value=<%= c.rate %> form="alert">
 				</td>
 				<td><span id="current_rate"><%= c.rate %></span></td>
 				<td>
-					<input label="Upper Rate" type="number" name="upper_rate" 
-				id="upper_rate" min=<%= c.rate %> step="0.0001" value=<%= c.rate %> form="alert">
+					<input label="Upper Rate" name="upper_rate" 
+				id="upper_rate" class="spinner" min=<%= c.rate %> step="0.0001" value=<%= c.rate %> form="alert">
 				</td>
 			</tr>
 			</table>
